@@ -34,8 +34,6 @@ let trackBall = img => {
   cv.erode(mask, mask, M)
   cv.dilate(mask, mask, M)
 
-  cv.imshow('mask', mask)
-
   let m = cv.moments(mask)
 
   M.delete()
@@ -43,7 +41,8 @@ let trackBall = img => {
   lower.delete()
   upper.delete()
 
-  if (m.m00 !== 0) {
+
+  if (m.m00 > 100000) {
     let center = {
       x: Math.round(m.m10 / m.m00),
       y: Math.round(m.m01 / m.m00)
