@@ -2,7 +2,7 @@
 /* exported onOpenCvReady */
 
 const onOpenCvReady = () => {
-  let ws = new WebSocket('ws://localhost:9393')
+  let ws = new WebSocket('ws://rosa.local:5678')
 
   ws.onmessage = msg => {
     let reader = new FileReader()
